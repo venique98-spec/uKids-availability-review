@@ -1,15 +1,3 @@
-None selected 
-
-Skip to content
-Using Gmail with screen readers
-christianvdm18@gmail.com 
-Enable desktop notifications for Gmail.
-   OK  No thanks
-Conversations
-
-Christian Van Der Merwe
-christianvdm18@gmail.com
-christianvdm18@gmail.com. Press tab to insert.
 # ukids_scheduler_app.py
 # Streamlit uKids scheduler with Director/Leader rules, extra-pass rows,
 # robust CSV ingestion, and Excel export.
@@ -648,5 +636,3 @@ if st.button("Generate Schedule", type="primary"):
     )
 else:
     st.info("Upload the two CSV files (any names), then click **Generate Schedule**.")
-ukids_scheduler_app.py
-Displaying ukids_scheduler_app.py.
