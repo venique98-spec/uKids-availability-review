@@ -1,3 +1,5 @@
+st.write("✅ Streamlit is running")
+
 # ukids_scheduler_app.py
 # Streamlit uKids scheduler with Director/Leader rules, extra-pass rows,
 # robust CSV ingestion, and Excel export.
@@ -636,3 +638,4 @@ if st.button("Generate Schedule", type="primary"):
     )
 else:
     st.info("Upload the two CSV files (any names), then click **Generate Schedule**.")
+
