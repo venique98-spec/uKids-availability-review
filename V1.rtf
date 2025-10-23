@@ -1,6 +1,6 @@
 # ukids_scheduler_app.py
-# Streamlit uKids scheduler with Director/Leader rules, extra-pass rows,
-# robust CSV ingestion, and Excel export.
+# Streamlit uKids scheduler with uniform monthly cap selector, Director/Leader rules,
+# extra-pass rows, robust CSV ingestion, and Excel export.
 
 import io
 import re
@@ -193,7 +193,7 @@ def build_long_df(people_df: pd.DataFrame, name_col: str, role_cols, codes_col: 
                 continue
             pr = int(round(pr))
             if pr >= 1:
-                # If Director: only eligible for priority==1 roles (kept as eligibility rule)
+                # Eligibility rule kept: Directors only eligible for priority==1 roles
                 if flags["has_D"] and pr != 1:
                     continue
                 records.append({"person": person, "role": role, "priority": pr})
@@ -323,9 +323,8 @@ def served_in_priority_one(assignments_by_cell, priority_lut, slot_to_role):
 def is_ukids_leader(flags: dict) -> bool:
     return bool(flags.get("has_BL") or flags.get("has_PL") or flags.get("has_EL") or flags.get("has_SL") or flags.get("has_D"))
 
-# === UNIFORM MONTHLY CAP (no Director/non-Director differentiation) ===
-# This global will be set via the UI selectbox below.
-SERVING_CAP = 2
+# === Uniform monthly serving cap (no Director/non-Director differentiation) ===
+SERVING_CAP = 2  # default; will be overridden by the UI control below
 
 def base_max_for_person(flags: dict) -> int:
     # Everyone shares the same selected monthly cap.
